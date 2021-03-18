@@ -17,13 +17,15 @@
 
 ## 이론 
 **1. 통신 신호 및 변조에 대한 기본 개념 & 기저대역 표현법**
-![]()
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/01.jpg)
 
 **2. SDR의 기본 개념 및 시스템 이해**
-![]()
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/02.jpg)
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/03.jpg)
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/04.jpg)
 
 **3. USRP 개발 환경 구축(현재상황 Check)**
-![]()
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/05.jpg)
 
 
 
@@ -100,11 +102,16 @@ mmcumul_im - Imagine TIME(허수부)구하는 함수
 
 
 (분석 내용)
-![]()
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/06.jpg)
 
 
 **(실수부+허수부) 최종 결과값**
-
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/07.jpg)
 
 
 **2. 공부하면서 궁금했던 점(+답변)**
+
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/08.jpg)
+![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/09.jpg)
+
+
