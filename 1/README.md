@@ -91,8 +91,11 @@ if defined(__x86_64__) || defined(__i386__)
  
 ```
 (함수 이름)
+
 mmcumul_re  - REAL TIME(실수부)구하는 함수
+
 mmcumul_im - Imagine TIME(허수부)구하는 함수
+
 
 (분석 내용)
 ![]()
