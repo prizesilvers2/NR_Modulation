@@ -3,14 +3,17 @@
 ### ***디지털 통신에서의 preamble 역할에 대해 이해***
 
 (이론)
+
 **: preamble 개념 및 동기화 개념 이해**
 
 **: LAB의 전체구조(4-Thread구성)**
 
 (실습)
+
 **: TX-RX간 preamble 송수신을 통해 동기화를 하는 부분 구현**
 
 **TX - preamble전송 부분 구현** 
+
 **RX- preamble detection을 구현하여 수신여부 확인**
 
 
@@ -52,6 +55,7 @@ PHY
 
 **1. TX실습**
 **: vThread_tx.c 코드 구현**
+
 => MATLAB으로 아래의 Preamble Seq를 구현한 뒤 nr-ue.c의 preamble에 넣어보고 성능 비교해보기.
 
 (수식을 참고하여 MATLAB으로 구한 값)
@@ -107,6 +111,7 @@ M sequence
 
 **2. RX실습**
 **: vThread_rx.c 코드 분석**
+
 => vrx_genPreamble 함수 구현
 - preamble seq를 가운데 주파수에 놓고 IFFT
 (여기서 preamble을 넣을 때 들어가는 순서가 특이한데 이러한 이유 설명하기)
