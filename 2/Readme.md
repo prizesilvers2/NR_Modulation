@@ -34,18 +34,15 @@ correlation -> cross-correlation - inner product이용
 
 (실제 LAB에서 사용하는 structure)
 
-**2. LAB의 전체구조(4-Thread구성)**
+**2. LAB의 전체구조 및 역할(4-Thread구성)**
 (전체 Structure)
 ![]()
 
+(Time sequence diagram으로 data 처리 순서 알아봄)
 Virtual RF
 Virtual TX
 Virtual RX
 PHY
-
-
-**3. USRP 개발 환경 구축(현재상황 Check)**
-![]()
 
 
 
@@ -127,5 +124,7 @@ M sequence
 **4. 느낀점**
 
 : 통신기법(LTE->NR)이 바뀜에 따라 사용하는 preamble seq가 다르다는 것을 알게 됨.
+
+: multi thread는 처음
 
  
