@@ -114,4 +114,12 @@ mmcumul_im - Imagine TIME(허수부)구하는 함수
 ![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/08.jpg)
 ![](https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/09.jpg)
 
+**3. 느낀점**
+
+: 최적화 방법론이란 가장 많이 호출되는 부분을 가장 빠르게 처리해주는 것을 의미함.
+SIMD병렬연산을 통해 CPU계산의 복잡도를 줄여주어서 프로그램을 최적화시켜줄 수 있었음.
+이러한 과정을 통해, 프로그램을 할 때, 적합한 병렬화 대상을 찾아서 복잡도를 줄여줌으로써 성능개선을 할 수 있다는 사실을 깨달음. 
+또한 이 덕분에 속도가 생명인 무선통신을 할 때 유용하게 사용된다는 것을 알고 앞으로하는 프로젝트에도 적용해볼 계획임.
+
+
 
