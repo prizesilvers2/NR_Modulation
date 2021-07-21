@@ -1,1 +1,92 @@
+#  Initial Setting
+##  초기 설정 및 파라미터 변경 설명
+
+**:  Transmit mode를 변경하는데 필요한 설정 방법 설명**
+
+**: Transmit mode에 따라 필요한 옵션 변경 설명**
+
+
+## Set up
+
+**1. Transmit mode 변경**
+
+**1-1) Change Tx mode**
+
+Tx Server의 Linux에서 runTx.sh 변경 
+```
+vi runTx.sh
+```
+> 1-3의 옵션 설명을 참고하여 변경
+```
+#!/bin/bash
+
+sudo ./cmake_targets/ran_build/build/nr-uesoftmodem -C 3300000000 --TM 2 --BM 1 --node-type 1 --preamble-scale 2 --data-scale 2
+```
+**1-2) Change Rx mode**
+
+Rx Server의 Linux에서 runRx.sh 변경 
+``` 
+vi runRx.sh
+```
+> 1-3의 옵션 설명을 참고하여 변경
+``` 
+#!/bin/bash
+
+  sudo ./cmake_targets/ran_build/build/nr-uesoftmodem -C 3300000000 --node-type 0 --TM 2 --BM 1 --capture-rx-data 1 --nb-rx-data 1000
+```
+**1-3) Option Description**
+``` 
+
+#define CMDLINE_PARAMS_DESC {
+{"C" ,                      CONFIG_HLP_DLF,             0,            uptr:&center_frequency,         defuintval:2680000000,    TYPE_UINT,      0}, 
+{"node-type" ,                CONFIG_HLP_NODE_TYPE,       0,                   iptr:&ndType,                   defintval:-1,             TYPE_INT,         0},                     
+{"BM" ,                          CONFIG_HLP_BWMODE,           0,                   u8ptr:&bwMode,                      defintval:1,                   TYPE_UINT8,       0},      
+{"preamble-scale" ,             CONFIG_HLP_SCALE_PRE,         0,                  u16ptr:&preambleScale,            defintval:0,                   TYPE_UINT16,     0},      
+{"data-scale" ,                  CONFIG_HLP_SCALE_DATA,       0,                  u16ptr:&dataScale,                 defintval:0,                   TYPE_UINT16,     0},      
+{"capture-rx-data" ,           CONFIG_HLP_CAPTURE,            0,                  u8ptr:&dataCapture,                 defintval:0,                   TYPE_UINT8,       0},
+{"nb-rx-data" ,                  CONFIG_HLP_NBRXDATA,         0,                  u16ptr:&nbRxData,                   defintval:0,                   TYPE_UINT16,     0},   
+{"TM",                             CONFIG_HLP_TRANSMITMODE,    0,                  u8ptr:&txMode,                      defintval:0,                   TYPE_UINT8,       0},   
+}
+
+
+#define CONFIG_HLP_DLF           "Set the downlink frequency for all component carriers\n"
+#define CONFIG_HLP_NODE_TYPE     "type of node (0 - rx, 1 - tx)\n"
+#define CONFIG_HLP_BWMODE           "Bandwidth mode (0 - 5MHz, 1 - 10MHz, 2 - 20MHz, SCS : 15kHz (common))"
+#define CONFIG_HLP_SCALE_PRE     "Preamble scaledown level (power of 2)\n"
+#define CONFIG_HLP_SCALE_DATA    "data scaledown level (power of 2)\n"
+#define CONFIG_HLP_CAPTURE        "data capture option\n"
+#define CONFIG_HLP_NBRXDATA       "number of data to transmit\n"
+#define CONFIG_HLP_TRANSMITMODE    "Transmit mode (0 - SISO, 1 - 2x1 STBC, 2 - 1x2 STLC)"
+```
+
+**2. CMakeLists**
+> CMakeLists는 손쉬운 개발을 위해 임시의 파라미터를 정의한 것으로, 
+ 코드가 최종적으로 완성된다면 CMakeList에서의 변경이 필요없이 runTx와 runRx에서의 옵션 값 변경으로만 transmit mode을 변경할 수 있게된다.
+ 그러나 현재의 코드는 추가적인 수정이 필요한 상태이므로 동작하고자 하는 모드에 따라 CMakeLists의 파라미터들을 True 혹은 False로 변경해주어야한다. 
+
+아래의 표를 참고하여 Mode에 따라 CMakeLists 변경 
+```
+add_boolean_option(MOD_STLC                  True "build option for STLC codes")
+add_boolean_option(MOD_STBC                  True "build option for STBC codes")
+add_boolean_option(DNF_PWROPTRF           True "optimizing RF power consumption")
+```
+![](https://github.com/dbwpdls22/NR_Modulation/blob/main/STLC/Figs/CMakeLists.png)
+
+**3. IQ Send Margin**
+> Usrp send margin 값 변경
+
+change STBC : 300, STLC : 250
+```
+#ifdef MOD_STBC
+#define VRF_IQSENDMARGIN         250 //us
+#else
+#define VRF_IQSENDMARGIN         250 //us
+#endif
+```
+**4. USRP 연결**
+> SISO : 1x1 STBC : 2x1  STLC : 1x2
+
+STLC mode에서의 USRP 안테나 연결  
+→ TX/RX 모두 가능한 단자에 연결
+![](https://github.com/dbwpdls22/NR_Modulation/blob/main/STLC/Figs/USRP.PNG)
 
