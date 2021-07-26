@@ -19,7 +19,7 @@
 <p align="center"><img src="https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/channelestimation_method1.png?raw=true" width="80%"></p>
 
 - Result
-> 평균 : 0.2767 		표준편차 : 2.3425		표본 : 400개
+> 평균 : 0.2767	표준편차 : 2.3425	표본 : 400개
 > 
 > QPSK Symbol을 사용하여 통신을 하였으므로 가로축은 tx와 rx의 phase의 차(f-domain)를 나타내며, 세로축은 확률을 의미한다.
 >
@@ -41,7 +41,7 @@
 <p align="center"><img src="https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/channelestimation_method2.png?raw=true" width="80%"></p>
 
 - Result
-> 평균 : -0.6044 	표준편차 : 2.5788		표본 : 2000개
+> 평균 : -0.6044	표준편차 : 2.5788	표본 : 2000개
 >  
 > QPSK Symbol을 사용하여 통신을 하였으므로 가로축은 tx와 rx의 phase의 차(f-domain)를 나타내며, 세로축은 확률을 의미한다.
 >
@@ -69,13 +69,15 @@
 
 
 - Result
-> 평균 : -0.2993 	표준편차 : 2.5428		표본 : 1000개
+> 평균 : -0.2993	표준편차 : 2.5428	표본 : 1000개
 >
 > QPSK Symbol을 사용하여 통신을 하였으므로 가로축은 tx와 rx의 phase의 차(f-domain)를 나타내며, 세로축은 확률을 의미한다.
 >
 > 이 그래프를 통해 방법1과 마찬가지로 UL, DL 채널의 각도 차이는 평균 0에 가까운 가우스 분포를 띄는 것을 확인할 수 있고, 방법1, 2 보다 높은 확률로 UL, DL의 각도가 일치함을 확인할 수 있다. 
 >
 > **그러나 여전히 Channel Non-reciprocity한 상황임**
+> 
+> Channel reciprocity를 구현하기 위한 추가적인 연구가 필요하다. 
 
 <p align="center"><img src="https://github.com/prizesilvers2/NR_Modulation/blob/main/Figs/channelestimation_result3.png?raw=true" width="80%"></p>
 
